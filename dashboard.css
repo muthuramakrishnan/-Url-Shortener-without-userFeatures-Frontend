@@ -1,0 +1,10 @@
+
+.navbar{
+    box-shadow: 2px 2px 5px #3292a6;
+    background: white;
+    position: relative;
+}
+.navbar .nav-item{
+    font-size: 1.2rem;
+    padding-right: 1.2rem;
+}
