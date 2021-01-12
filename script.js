@@ -39,7 +39,7 @@ async function populateData(){
 function getUrlData(){
     return new Promise((resolve, reject)=>{
         let xhr = new XMLHttpRequest();
-        xhr.open('GET','http://localhost:5000/shortUrls',true);
+        xhr.open('GET','https://urlshortener-backend-wo-user.herokuapp.com/shortUrls',true);
         xhr.setRequestHeader('Content-Type','application/json');
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4 && xhr.status==200)
@@ -69,7 +69,7 @@ function sendCreateRequest(){
     }
     return new Promise((resolve, reject)=>{
         let xhr = new XMLHttpRequest();
-        let url = 'http://localhost:5000/shortUrls';
+        let url = 'https://urlshortener-backend-wo-user.herokuapp.com/shortUrls';
         let params = JSON.stringify(jsonobj);
         console.log(params)
         xhr.open('POST',url,true);
