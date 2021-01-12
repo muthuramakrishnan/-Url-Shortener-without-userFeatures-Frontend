@@ -1,5 +1,7 @@
 populateData();
 createShortUrl();
+
+/*Populates the URL data in the UI*/
 async function populateData(){
     try{
         let response = JSON.parse(await getUrlData());
@@ -29,13 +31,15 @@ async function populateData(){
             td.innerText = data.clicks;
             tr.append(td);
             tBody.append(tr);
-    });
-    table.append(tBody);
-}
+        });
+        table.append(tBody);
+    }
     catch(error){
         console.error(error);
     }
 }
+
+/*Invokes the server to get SHORT URLS available in the DB*/
 function getUrlData(){
     return new Promise((resolve, reject)=>{
         let xhr = new XMLHttpRequest();
@@ -54,6 +58,8 @@ function getUrlData(){
         xhr.send();
     });
 }
+
+/*Listener for form-submit event*/
 async function createShortUrl(){
     let createForm = document.getElementById('url-shortener-form');
     createForm.addEventListener('submit',async function(event){
@@ -64,6 +70,7 @@ async function createShortUrl(){
     
 }
 
+/*Posts Data to the server and creates a short URL*/
 function sendCreateRequest(){
     let fullUrl = document.getElementById('fullUrl').value;
     let jsonobj = {
