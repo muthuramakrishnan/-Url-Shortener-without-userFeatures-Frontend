@@ -13,14 +13,14 @@ async function populateData(){
             let td = document.createElement('td');
             td.setAttribute('style','max-width: 900px; word-wrap:break-word');
             let a = document.createElement('a');
-            a.setAttribute('href','https://urlshortener-backend-wo-user.herokuapp.com/'+data.fullUrl);
+            a.setAttribute('href',data.fullUrl);
             a.innerText = data.fullUrl;
             td.append(a);
             tr.append(td);
 
             td = document.createElement('td');
             a = document.createElement('a');
-            a.setAttribute('href',data.shortUrl);
+            a.setAttribute('href','https://urlshortener-backend-wo-user.herokuapp.com/'+data.shortUrl);
             a.innerText = data.shortUrl;
             td.append(a);
             tr.append(td);
