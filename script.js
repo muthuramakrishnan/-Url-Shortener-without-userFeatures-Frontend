@@ -57,7 +57,9 @@ function getUrlData(){
 async function createShortUrl(){
     let createForm = document.getElementById('url-shortener-form');
     createForm.addEventListener('submit',async function(event){
+        event.preventDefault();
         await sendCreateRequest();
+        location.reload();
     })
     
 }
@@ -75,7 +77,7 @@ function sendCreateRequest(){
         xhr.open('POST',url,true);
         xhr.setRequestHeader('Content-Type','application/json');
         xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4 && xhr.status==201)
+            if(xhr.readyState == 4 && xhr.status==200)
             {
                 resolve('CREATE SUCCESS');
                 console.log('CREATE SUCCESS');
